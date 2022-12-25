@@ -10,6 +10,11 @@ const categorySchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
         required: true
+    },
+    deletedAt: {
+        type: Date,
+        requied: true,
+        default: null,
     }
 }, { timestamps : true })
 

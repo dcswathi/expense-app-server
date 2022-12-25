@@ -68,9 +68,26 @@ usersController.login = (req, res) => {
 }
 
 usersController.account = (req, res) => {
-    // res.json(req.user)
-    res.json(req.tokenData)
+    const id = req.user.id;
+    User.findById(id)
+        .then(({ _id, username, email, occupation }) => {
+            res.json({ _id, username, email, occupation })
+        })
+        .catch((err) => {
+            res.json(err)
+        })
 }
 
+usersController.update = (req, res) => {
+    const id = req.user.id;
+    const body = req.body;
+    User.findByIdAndUpdate(id, body, {new: true, runValidators: true})
+        .then(({ _id, username, email, occupation }) => {
+            res.json({ _id, username, email, occupation })
+        })
+        .catch((err) => {
+            res.json(err)
+        })
+}
 
 module.exports = usersController

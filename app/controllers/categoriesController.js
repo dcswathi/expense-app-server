@@ -48,17 +48,17 @@ categoriesController.update = (req, res) => {
         })
 }
 
-categoriesController.destroy = (req, res) => {
-    const id = req.params.id
-    
-    Category.findByIdAndDelete(id)
-        .then((category) => {
-            res.json(category)
-        })
-        .catch((err) => {
-            res.json(err)
-        })
-}
+categoriesController.delete = (req, res) => {
+    const { id } = req.params;
+  
+    Category.findByIdAndUpdate(id, { deletedAt: new Date() }, { new: true, runValidators: true })
+      .then((category) => {
+        res.json(category);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  };
 
 
 module.exports = categoriesController

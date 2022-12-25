@@ -29,9 +29,11 @@ const userSchema = new Schema({
         // minLength: 8,
         // maxLength: 128
     },
-    // occupation: {
-    //     type: String
-    // },
+    occupation: {
+        type: String,
+        required: false,
+        default: null,
+    },
     // pic: {
     //     type: Image
     // }
