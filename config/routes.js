@@ -20,6 +20,7 @@ router.get('/api/expenses', authenticateUser, expensesController.list)
 router.post('/api/expenses', authenticateUser, expensesController.create)
 router.get('/api/expenses/:id', authenticateUser, expensesController.show)
 router.put('/api/expenses/:id', authenticateUser, expensesController.update)
+router.delete('/api/expenses/:id', authenticateUser, expensesController.delete)
 
 router.get('/api/budget', authenticateUser, budgetController.list)
 // router.post('/api/budget', authenticateUser, budgetController.create)

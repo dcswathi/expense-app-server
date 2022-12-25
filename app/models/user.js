@@ -28,7 +28,13 @@ const userSchema = new Schema({
         required: true,
         // minLength: 8,
         // maxLength: 128
-    }
+    },
+    // occupation: {
+    //     type: String
+    // },
+    // pic: {
+    //     type: Image
+    // }
 }, { timestamps : true })
 
 const User = mongoose.model('User', userSchema)
